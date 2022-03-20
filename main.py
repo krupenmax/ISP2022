@@ -1,8 +1,11 @@
 import os
 from func import Words
 try:
-    N: int = int(input("Enter N: "))
-    K: int = int(input("Enter K: "))
+    try:
+        N: int = int(input("Enter N: "))
+        K: int = int(input("Enter K: "))
+    except ValueError:
+        print("Incorrect input")
     if N == 0 or K == 0:
         raise ValueError("Incorrect input")
     with open(r'/lab_1/Text.txt', encoding="utf8") as file_to_open:
