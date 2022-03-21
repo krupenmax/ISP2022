@@ -9,6 +9,7 @@ class Words:
         self.split_str: str = ""
         self.word_dict: dict = {}
         self.ngrams_dict: dict = {}
+        self.res_str: str = ""
 
     def count_words(self):
             self.res_str = self.str_input.replace('?', ' ').replace('!', ' ').replace(',', ' ').replace('.', ' ').split()
