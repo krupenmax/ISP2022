@@ -2,11 +2,17 @@
 
 <table>
     <tr>
-        <th>Tracks:</hj>
+        <th>Tracks:</th>
     </tr>
     {% for Track in Tracks%}
     <tr>
-        <td>{{Track.title}}</td>
+        <td>Название: {{Track.title}}</td>
+    </tr>
+    <tr>
+        <td>Исполнитель: {{Track.artist}}</td>
+    </tr>
+    <tr>
+        <td>Жанр: {{Track.genre}}</td>
     </tr>
     {% empty %}
     <h3>No items in list</h3>

@@ -5,12 +5,12 @@ from django.contrib.auth.models import User
 
 class Track(models.Model):
     Genre_List = (
-        ('Р', 'Рэп '),
-        ('К', 'Классика'),
+        ('Рэп', 'Рэп '),
+        ('Классика', 'Классика'),
     )
     title = models.CharField(max_length=256)
     artist = models.CharField(max_length=256)
-    genre = models.CharField(max_length=1, choices=(Genre_List))
+    genre = models.CharField(max_length=256, choices=(Genre_List))
     description = models.TextField(null=True, blank=True)
     create = models.DateTimeField(auto_now_add=True)
 
