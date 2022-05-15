@@ -1,19 +1,16 @@
 <h1>My Tracks</h1>
-
+<a href ="{% url 'track-create'%}">Add Track</a>
 <table>
     <tr>
         <th>Tracks:</th>
+        <th></th>
+        <th></th>
     </tr>
-    {% for Track in Tracks%}
+    {% for track in tracks%}
     <tr>
-        <td>Название: {{Track.title}}</td>
-    </tr>
-    <tr>
-        <td>Исполнитель: {{Track.artist}}</td>
-    </tr>
-    <tr>
-        <td>Жанр: {{Track.genre}}</td>
-    </tr>
+        <td>Название: {{track.title}}</td>
+        <td><a href="{% url 'track' track.id %}">View</a></td>
+        <td><a href="{% url 'track-update' track.id %}">Edit</a></td>
     {% empty %}
     <h3>No items in list</h3>
     {% endfor %}
