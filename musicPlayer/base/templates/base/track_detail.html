@@ -5,6 +5,9 @@
         <td>Исполнитель: {{track.artist}}</td>
     </tr>
     <tr>
-        <td>Жанр: {{track.genre}}</td>
+        <td>Жанр:</td>
+        {%for item in track.genre.all%}
+        <td>{{item}}</td>
+        {% endfor %}
     </tr>
 </table
