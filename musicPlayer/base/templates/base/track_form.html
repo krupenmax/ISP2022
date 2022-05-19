@@ -1,3 +1,6 @@
+{% extends 'base/main.html' %}
+{%  block content %}
+
 <h3>Track Form</h3>
 
 <a href="{% url 'tracks' %}">Go Back</a>
@@ -6,3 +9,5 @@
     {{form.as_p}}
     <input type="submit" value="Submit">
 </form>
+
+{% endblock content %}

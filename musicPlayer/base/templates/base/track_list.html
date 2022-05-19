@@ -1,5 +1,5 @@
-
-
+{% extends 'base/main.html' %}
+{%  block content %}
 
 {% if request.user.is_authenticated%}
     <p>{{request.user}}</p>
@@ -9,7 +9,6 @@
 {% endif %}
 <hr>
 <h1>My Tracks</h1>
-
 
 <a href ="{% url 'track-create'%}">Add Track</a>
 <table>
@@ -28,3 +27,5 @@
     <h3>No items in list</h3>
     {% endfor %}
 </table>
+
+{% endblock content %}

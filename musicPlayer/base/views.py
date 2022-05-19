@@ -15,7 +15,7 @@ from .models import Track
 
 class CustomLoginView(LoginView):
     template_name = 'base/login.html'
-    filed = '__all__'   
+    field = '__all__'   
     redirect_authenticated_user = True
 
     def get_success_url(self):
@@ -57,7 +57,7 @@ class TrackDetail(LoginRequiredMixin, DetailView):
 
 class TrackCreate(LoginRequiredMixin, CreateView):
     model = Track
-    fields = ['title', 'artist', 'genre', 'description']
+    fields = ['title', 'artist', 'genre', 'description', 'audio_path']
     success_url = reverse_lazy('tracks')
 
     def form_valid(self, form):
@@ -67,7 +67,7 @@ class TrackCreate(LoginRequiredMixin, CreateView):
 
 class TrackUpdate(LoginRequiredMixin, UpdateView):
     model = Track
-    fields = ['title', 'artist', 'genre', 'description']
+    fields = ['title', 'artist', 'genre', 'description', 'audio_path']
     success_url = reverse_lazy('tracks')
 
 class TrackDelete(LoginRequiredMixin, DeleteView):
