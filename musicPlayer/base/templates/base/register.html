@@ -3,13 +3,13 @@
 
 <h1>Register</h1>
 
-<form method="POST">
-    {% csrf_token %}
-    {{form.as_p}}
-    <input type="submit" value="Register">
-</form>
+<div id="RegisterDiv">
+    <form method="POST">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input type="submit" value="Register">
+    </form>
 
-
-<a href="{% url 'login' %}">Sign in</a>
-
+    <a href="{% url 'login' %}">Sign in</a>
+</div>
 {% endblock content %}

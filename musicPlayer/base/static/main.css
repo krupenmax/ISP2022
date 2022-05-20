@@ -1,11 +1,59 @@
 body {
-    background-color: #fafafa;
+    background-color: #a85ae9;
 }
 
 .container {
-    max-width:  550px;
+    max-width:  50%;
     margin: auto;
-    background-color: #fff;
-    -webkit-box-shadow: 2px 2px 13px -4px rgba(0, 0, 0, 0.21);
-    box-shadow: 2px 2px 13px -4px rgba(0, 0, 0, 0.21);
+    padding: 20px;
+    background-color: #fafafa;
+    -webkit-box-shadow: 13px 13px 13px 13px rgba(0, 0, 0, 0.21);
+    box-shadow: 13px 13px 13px 13px rgba(0, 0, 0, 0.21);
+    font-size: large;
+    font-family: 'Akshar', sans-serif;
+    font-family: 'Oswald', sans-serif;
+    max-height: 100%;
+}
+
+.CenterTable {
+    margin: auto;
+}
+
+h1 {
+    text-align: center;
+}
+
+audio {
+    margin: auto;
+}
+
+#LoginDiv {
+    text-align: center;
+}
+
+#audioDiv {
+    margin: auto;
+    text-align: center;
+    background-color: #fafafa;
+}
+
+#MainDiv {
+    text-align: center;
+}
+ 
+#FormDiv {
+    padding: 20px; 
+}
+
+#DeleteDiv {
+    text-align: center;
+    padding: 20px;
+}
+
+#UpperHeader {
+    text-align: right;
+}
+
+#RegisterDiv {
+    margin: auto;
 }

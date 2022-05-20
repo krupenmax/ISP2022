@@ -1,21 +1,32 @@
 {% extends 'base/main.html' %}
 {%  block content %}
 
-<h1>Track: {{track.title}}</h1>
+<div id="UpperHeader">
+    {% if request.user.is_authenticated %}
+        <p>Welcome, {{request.user}}!</p>
+        <a href="{% url 'logout' %}">Logout</a>
+    {% else %}
+        <a href="{% url 'login' %}">Login</a>
+    {% endif %}
+</div>  
+<hr>
+
 <a href="{% url 'tracks' %}">Go Back</a>
-<table>
+
+<h1>Track: {{track.title}}</h1>
+<table class="CenterTable">
     <tr>
         <td>Исполнитель:</td>
         <td>{{track.artist}}</td>
     </tr>
     <tr>
         <td>Жанр:</td>
-                {%for item in track.genre.all%}
-                <td>{{item}};</td>
-                {% endfor %}
+            {%for item in track.genre.all%}
+            <td>{{item}};</td>
+            {% endfor %}
 </table>
 
-<div>
+<div id="audioDiv">
     <audio src="/static/musics/a.mp3" type="audio/mpeg" controls></audio>
 </div>
 

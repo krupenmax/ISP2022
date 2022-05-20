@@ -1,27 +1,27 @@
 {% extends 'base/main.html' %}
-{%  block content %}
+{% block content %}
 
-{% if request.user.is_authenticated%}
-    <p>{{request.user}}</p>
-    <a href="{% url 'logout' %}">Logout</a>
-{% else %}
-    <a href="{% url 'login' %}">Login</a>
-{% endif %}
+<div id="UpperHeader">
+    {% if request.user.is_authenticated %}
+        <p>Welcome, {{request.user}}!</p>
+        <a href="{% url 'logout' %}">Logout</a>
+    {% else %}
+        <a href="{% url 'login' %}">Login</a>
+    {% endif %}
+</div>
 <hr>
-<h1>My Tracks</h1>
+<h1>MusicPlayer</h1>
 
-<a href ="{% url 'track-create'%}">Add Track</a>
+<div id="MainDiv">
+    <p>Tracks:</p>
+    <a href ="{% url 'track-create'%}">Add Track</a>
 
-<form metho="GET">
-    <input type='text' name='search-area' value="{{search_input}}" >
-    <input type="submit" value='Search'>
-</form>
-<table>
-    <tr>
-        <th>Tracks:</th>
-        <th></th>
-        <th></th>
-    </tr>
+    <form method="GET">
+        <input type='text' name='search-area' value="{{search_input}}" >
+        <input type="submit" value='Search'>
+    </form>
+</div>
+<table class="CenterTable">
     {% for track in tracks%}
     <tr>
         <td>Название: {{track.title}}</td>

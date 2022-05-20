@@ -1,13 +1,24 @@
 {% extends 'base/main.html' %}
-{%  block content %}
+{% block content %}
 
-<h3>Track Form</h3>
+<div id="UpperHeader">
+    {% if request.user.is_authenticated %}
+        <p>Welcome, {{request.user}}!</p>
+        <a href="{% url 'logout' %}">Logout</a>
+    {% else %}
+        <a href="{% url 'login' %}">Login</a>
+    {% endif %}
+</div>  
+<hr>
 
-<a href="{% url 'tracks' %}">Go Back</a>
-<form method="POST" action="">
-    {% csrf_token %}
-    {{form.as_p}}
-    <input type="submit" value="Submit">
-</form>
+<div id="FormDiv">
+    <a href="{% url 'tracks' %}">Go Back</a>
+    <h1>MusicPlayer</h1>
 
+    <form method="POST" action="">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input type="submit" value="Submit">
+    </form>
+</div>
 {% endblock content %}
