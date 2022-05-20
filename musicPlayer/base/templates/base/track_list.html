@@ -11,6 +11,11 @@
 <h1>My Tracks</h1>
 
 <a href ="{% url 'track-create'%}">Add Track</a>
+
+<form metho="GET">
+    <input type='text' name='search-area' value="{{search_input}}" >
+    <input type="submit" value='Search'>
+</form>
 <table>
     <tr>
         <th>Tracks:</th>

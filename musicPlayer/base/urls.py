@@ -13,5 +13,6 @@ urlpatterns = [
      path('track/<int:pk>/', TrackDetail.as_view(), name='track'),
      path('track-create/', TrackCreate.as_view(), name = "track-create"),
      path('track-update/<int:pk>/', TrackUpdate.as_view(), name = "track-update"),
-     path('track-delete/<int:pk>/', TrackDelete.as_view(), name = "track-delete")
+     path('track-delete/<int:pk>/', TrackDelete.as_view(), name = "track-delete"),
+     path('../musics/a.mp3', TrackDetail.as_view(), name = 'track-play')
 ]

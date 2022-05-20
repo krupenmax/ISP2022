@@ -1,5 +1,5 @@
 from distutils.log import Log
-from re import template
+from re import search, template
 from django.shortcuts import redirect, render
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
@@ -46,6 +46,12 @@ class TrackList(LoginRequiredMixin, ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['tracks'] = context['tracks'].filter(user=self.request.user)
+
+        search_input = self.request.GET.get('search-area') or ''
+        if search_input:
+            context['tracks'] = context['tracks'].filter(title__icontains=search_input)
+
+        context['search_input'] = search_input
         return context
 
 

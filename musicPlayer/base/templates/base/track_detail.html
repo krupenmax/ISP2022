@@ -13,12 +13,10 @@
                 {%for item in track.genre.all%}
                 <td>{{item}};</td>
                 {% endfor %}
-    </tr>   
-    <tr>
-        <td>
-            <audio src="file:///C:/Users/GoodWin/Desktop/ISP2022/musicPlayer/base/musics/a.mp3" type="audio/mpeg" controls></audio>
-        </td>
-    </tr>
 </table>
+
+<div>
+    <audio src="/static/musics/a.mp3" type="audio/mpeg" controls></audio>
+</div>
 
 {% endblock content %} 
