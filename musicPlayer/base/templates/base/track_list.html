@@ -21,10 +21,11 @@
         <input type="submit" value='Search'>
     </form>
 </div>
-<table class="CenterTable">
+<table class="CenterTable" border="1">
     {% for track in tracks%}
     <tr>
-        <td>Название: {{track.title}}</td>
+        <td>{{track.artist}}</td>
+        <td>{{track.title}}</td>
         <td><a href="{% url 'track' track.id %}">View</a></td>
         <td><a href="{% url 'track-update' track.id %}">Edit</a></td>
         <td><a href="{% url 'track-delete' track.id %}">Delete</a></td>

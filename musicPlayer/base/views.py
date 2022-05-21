@@ -63,7 +63,7 @@ class TrackDetail(LoginRequiredMixin, DetailView):
 
 class TrackCreate(LoginRequiredMixin, CreateView):
     model = Track
-    fields = ['title', 'artist', 'genre', 'description', 'audio_path']
+    fields = ['title', 'artist', 'genre', 'description']
     success_url = reverse_lazy('tracks')
 
     def form_valid(self, form):
@@ -73,7 +73,7 @@ class TrackCreate(LoginRequiredMixin, CreateView):
 
 class TrackUpdate(LoginRequiredMixin, UpdateView):
     model = Track
-    fields = ['title', 'artist', 'genre', 'description', 'audio_path']
+    fields = ['title', 'artist', 'genre', 'description']
     success_url = reverse_lazy('tracks')
 
 class TrackDelete(LoginRequiredMixin, DeleteView):
