@@ -1,37 +1,55 @@
 {% extends 'base/main.html' %}
 {% block content %}
 
+<h1>MusicPlayer</h1>
+
 <div id="UpperHeader">
     {% if request.user.is_authenticated %}
         <p>Welcome, {{request.user}}!</p>
-        <a href="{% url 'logout' %}">Logout</a>
+        <a href="{% url 'logout' %}">Выйти</a>
     {% else %}
         <a href="{% url 'login' %}">Login</a>
     {% endif %}
 </div>
 <hr>
-<h1>MusicPlayer</h1>
 
 <div id="MainDiv">
-    <p>Tracks:</p>
-    <a href ="{% url 'track-create'%}">Add Track</a>
+    <p>Tracks:</p>  
 
     <form method="GET">
         <input type='text' name='search-area' value="{{search_input}}" >
-        <input type="submit" value='Search'>
+        <input type="submit" value='Поиск'>
     </form>
 </div>
-<table class="CenterTable" border="1">
-    {% for track in tracks%}
-    <tr>
-        <td>{{track.artist}}</td>
-        <td>{{track.title}}</td>
-        <td><a href="{% url 'track' track.id %}">View</a></td>
-        <td><a href="{% url 'track-update' track.id %}">Edit</a></td>
-        <td><a href="{% url 'track-delete' track.id %}">Delete</a></td>
-    {% empty %}
-    <h3>No items in list</h3>
-    {% endfor %}
-</table>
+
+<div class="trackBox">
+    <div class="artistBox">
+        {% for track in tracks %}
+            <a href="https://www.google.com/search?q={{track.artist}}" id="artistSearchLink" target="_blank"><p>{{track.artist}}</p></a>
+            {% empty %}
+            <h3>Список пуст.</h3>
+        {% endfor %}
+    </div>
+
+    <div class="titleBox">
+        {% for track in tracks %}
+        <p><a href="{% url 'track' track.id %}">{{track.title}}</a></p>
+        {% endfor %}
+    </div>
+
+
+
+    <div class="editLinkBox">
+        {% for track in tracks%}
+            <p><a href="{% url 'track-update' track.id %}">Редактировать</a></p>
+        {% endfor %}
+    </div>
+
+    <div class="deleteLinkBox">
+        {% for track in tracks%}
+            <p><a href="{% url 'track-delete' track.id %}">Удалить</a></p>
+        {% endfor %}
+    </div>
+</div>
 
 {% endblock content %}

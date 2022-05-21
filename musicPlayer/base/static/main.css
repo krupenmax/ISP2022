@@ -1,5 +1,6 @@
 body {
     background-color: #a85ae9;
+    flex: 1 0 auto;
 }
 
 .container {
@@ -14,6 +15,8 @@ body {
     font-family: 'Oswald', sans-serif;
     display: flex;
     flex-direction: column;
+    min-height: 100%;
+
 }
 
 .CenterTable {
@@ -23,8 +26,23 @@ body {
 
 h1 {
     text-align: center;
-    border-top:  5px solid;
-    border-bottom:  3px solid;
+    border-top:  3px solid;
+    border-bottom:  5px solid;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+    padding: 5px;
+    
+}
+
+a:hover {
+    background-color: rgb(233, 233, 233);
+}
+
+#artistSearchLink {
+    padding: 0px;
 }
 
 audio {
@@ -35,7 +53,7 @@ audio {
     text-align: center;
 }
 
-#audioDiv {
+.audioDiv {
     margin: auto;
     text-align: center;
     background-color: #fafafa;
@@ -63,14 +81,46 @@ audio {
     margin: auto;
 }
 
-#MainContainer {
-    height: 100vh;
-}
 
 .footer {
     text-align: center;
-    padding: 20px;
+    padding-bottom: 50px;
+    padding-top: 50px;
     align-self: flex-end;
     font-family: 'Akshar', sans-serif;
     font-family: 'Oswald', sans-serif;
+    font-size: large;
+    position: relative;
+    left: 0;
+    bottom: 0;
+    height: 40px;
+    width: 100%;
+    flex: 0 0;
 }
+
+.trackBox {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    border: 3px solid;
+    margin: 5px;
+}
+
+.artistBox {
+    padding: 10px;
+}
+
+.titleBox {
+    padding: 10px;
+}
+
+
+.editLinkBox {
+    padding: 10px;
+}
+
+.deleteLinkBox {
+    padding: 10px;
+}
+
+

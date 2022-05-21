@@ -4,17 +4,21 @@
 <div id="UpperHeader">
     {% if request.user.is_authenticated %}
         <p>Welcome, {{request.user}}!</p>
-        <a href="{% url 'logout' %}">Logout</a>
+        <a href="{% url 'logout' %}">Выйти</a>
     {% else %}
         <a href="{% url 'login' %}">Login</a>
     {% endif %}
 </div>  
 <hr>
 
-<a href="{% url 'tracks' %}">Go Back</a>
 
-<h1>Track: {{track.title}}</h1>
+<h1>MusicPlayer</h1>
+<a href="{% url 'tracks' %}">Назад</a>
 <table class="CenterTable">
+    <tr>
+        <td>Название:</td>
+        <td>{{track.title}}</td>
+    </tr>
     <tr>
         <td>Исполнитель:</td>
         <td>{{track.artist}}</td>
@@ -24,10 +28,18 @@
             {%for item in track.genre.all%}
             <td>{{item}};</td>
             {% endfor %}
-</table>
+    </tr>
+    <tr>
+        <td>Описание:</td>
+        {% if track.description %}
+            <td>{{track.description}}</td>
+        {% else %}
+            <td>Отсутсвует.</td>
+        {% endif %}
+    </tr>
+</table>    
 
-<div id="audioDiv">
-    <audio src="/static/musics/{{track.audio_path}}" type="audio/mpeg" controls></audio>
-</div>
-
+<div class="audioDiv" >
+    <audio src="/static/musics/{{track.audioFile}}" type="audio/mpeg" controls></audio>
+</div>  
 {% endblock content %} 

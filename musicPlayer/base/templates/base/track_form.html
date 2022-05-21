@@ -1,26 +1,23 @@
 {% extends 'base/main.html' %}
 {% block content %}
 
-<div id="MainContainer">
     <div id="UpperHeader">
         {% if request.user.is_authenticated %}
             <p>Welcome, {{request.user}}!</p>
-            <a href="{% url 'logout' %}">Logout</a>
+            <a href="{% url 'logout' %}">Выйти</a>
         {% else %}
             <a href="{% url 'login' %}">Login</a>
         {% endif %}
     </div>  
     <hr>
 
+    <h1>MusicPlayer</h1>
+    <a href="{% url 'tracks' %}">Назад</a>
     <div id="FormDiv">
-        <a href="{% url 'tracks' %}">Go Back</a>
-        <h1>MusicPlayer</h1>
-
         <form method="POST" action="">
             {% csrf_token %}
             {{form.as_p}}
             <input type="submit" value="Submit">
         </form>
     </div>
-</div>
 {% endblock content %}

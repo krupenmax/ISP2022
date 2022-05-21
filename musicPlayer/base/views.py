@@ -60,6 +60,10 @@ class TrackDetail(LoginRequiredMixin, DetailView):
     context_object_name = 'track'
     template_name = 'base/track_detail.html'
 
+def audioFile(request):
+        audio_path = Track.get_path()
+        return render(request, 'base/track_detail.html', {'audioFile':audio_path})
+
 
 class TrackCreate(LoginRequiredMixin, CreateView):
     model = Track
