@@ -59,10 +59,15 @@ audio {
     background-color: #fafafa;
 }
 
+.sidebar {
+    border-style: dashed;
+    border-bottom: 2px solid;
+}
+
 #MainDiv {
     text-align: center;
 }
- 
+
 #FormDiv {
     padding: 20px; 
 }

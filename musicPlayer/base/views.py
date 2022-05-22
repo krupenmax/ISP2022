@@ -45,7 +45,7 @@ class TrackList(LoginRequiredMixin, ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['tracks'] = context['tracks'].filter(user=self.request.user)
+
 
         search_input = self.request.GET.get('search-area') or ''
         if search_input:
@@ -54,6 +54,21 @@ class TrackList(LoginRequiredMixin, ListView):
         context['search_input'] = search_input
         return context
 
+class MyTrackList(LoginRequiredMixin, ListView):
+    model = Track
+    context_object_name = 'tracks'
+    template_name = 'base/my_tracks.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['tracks'] = context['tracks'].filter(user=self.request.user)
+
+        search_input = self.request.GET.get('search-area') or ''
+        if search_input:
+            context['tracks'] = context['tracks'].filter(title__icontains=search_input)
+
+        context['search_input'] = search_input
+        return context
 
 class TrackDetail(LoginRequiredMixin, DetailView):
     model = Track

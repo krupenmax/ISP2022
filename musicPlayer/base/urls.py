@@ -2,7 +2,7 @@ from ast import Delete
 from django.urls import path
 
 from base.models import Track, Genre
-from .views import TrackCreate, TrackDetail, TrackList, TrackCreate, TrackUpdate, TrackDelete, CustomLoginView, RegisterView
+from .views import TrackCreate, TrackDetail, TrackList, TrackCreate, TrackUpdate, TrackDelete, CustomLoginView, RegisterView, MyTrackList
 from django.contrib.auth.views import LogoutView
 
 urlpatterns = [
@@ -14,5 +14,6 @@ urlpatterns = [
      path('track-create/', TrackCreate.as_view(), name = "track-create"),
      path('track-update/<int:pk>/', TrackUpdate.as_view(), name = "track-update"),
      path('track-delete/<int:pk>/', TrackDelete.as_view(), name = "track-delete"),
-     path('../musics/a.mp3', TrackDetail.as_view(), name = 'track-play')
+     path('../musics/a.mp3', TrackDetail.as_view(), name = 'track-play'),
+     path('my-tracks/', MyTrackList.as_view(), name = 'myTracks')
 ]
