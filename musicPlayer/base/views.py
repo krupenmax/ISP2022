@@ -9,6 +9,7 @@ from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login
+from django.views import View
 from .models import Track
 # Create your views here.
 
@@ -45,13 +46,13 @@ class TrackList(LoginRequiredMixin, ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-
-
+        add_track_input = self.request.GET.get('track-area') or ''
         search_input = self.request.GET.get('search-area') or ''
         if search_input:
             context['tracks'] = context['tracks'].filter(title__icontains=search_input)
-
-        context['search_input'] = search_input
+            context['search_input'] = search_input
+        if add_track_input:
+            Track.add_user(Track, add_track_input)
         return context
 
 class MyTrackList(LoginRequiredMixin, ListView):
@@ -75,10 +76,6 @@ class TrackDetail(LoginRequiredMixin, DetailView):
     context_object_name = 'track'
     template_name = 'base/track_detail.html'
 
-def audioFile(request):
-        audio_path = Track.get_path()
-        return render(request, 'base/track_detail.html', {'audioFile':audio_path})
-
 
 class TrackCreate(LoginRequiredMixin, CreateView):
     model = Track
@@ -99,3 +96,4 @@ class TrackDelete(LoginRequiredMixin, DeleteView):
     model = Track
     context_object_name = 'track'
     success_url = reverse_lazy('tracks')
+

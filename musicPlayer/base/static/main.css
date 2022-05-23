@@ -60,8 +60,13 @@ audio {
 }
 
 .sidebar {
-    border-style: dashed;
     border-bottom: 2px solid;
+    padding: 10px;
+    text-align: left;
+}
+
+.sidebar a {
+    background-color: #fafafa;
 }
 
 #MainDiv {

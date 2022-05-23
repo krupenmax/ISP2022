@@ -2,6 +2,8 @@ from __future__ import generator_stop
 from tkinter import CASCADE
 from django.db import models
 from django.contrib.auth.models import User
+from django.db.models.signals import post_save
+from django.dispatch import receiver
 
 # Create your models here.
 
@@ -10,14 +12,18 @@ class Genre(models.Model):
     def __str__(self):
         return self.genre_name
 
+
 class Track(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
     title = models.CharField(max_length=256)
+    user = models.ManyToManyField(User)
     audioFile = models.FileField()
     artist = models.CharField(max_length=256)
     genre = models.ManyToManyField(Genre)
     description = models.TextField(null=True, blank=True)
     create = models.DateTimeField(auto_now_add=True)
+
+    def add_user(self, userName : User):
+        self.user.add(self.id, userName)
 
     def __str__(self):
         return self.title
@@ -25,6 +31,4 @@ class Track(models.Model):
     def get_path(self):
         return self.audioFile
 
-class Meta:
-    ordering = ['complete']
 
