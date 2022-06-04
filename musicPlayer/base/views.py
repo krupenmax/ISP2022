@@ -17,9 +17,6 @@ from django.views import View
 from .models import Track
 # Create your views here.
 
-def main(request):
-    return render(request, "/base/track_list.html", {'get()': TrackList.get_context_data() })
-
 class CustomLoginView(LoginView):
     template_name = 'base/login.html'
     field = '__all__'   

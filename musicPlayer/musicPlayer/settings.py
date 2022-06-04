@@ -25,9 +25,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-t*zhf^4=_b68n2&(9#5(eas0cw3c!n_lg&)=n33=gpw@_woy2o'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['megaturboultragiga420player.herokuapp.com/', '127.0.0.1']
 
 
 # Application definition
@@ -78,8 +78,12 @@ WSGI_APPLICATION = 'musicPlayer.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'Database',
+        'USER': 'postgres',
+        'PASSWORD': 'ILikeSmokingWeed',
+        'HOST': 'localhost',
+        'PORT': '5432'
     }
 }
 

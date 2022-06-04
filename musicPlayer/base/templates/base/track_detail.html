@@ -1,18 +1,9 @@
 {% extends 'base/main.html' %}
 {%  block content %}
 
-<div id="UpperHeader">
-    {% if request.user.is_authenticated %}
-        <p>Welcome, {{request.user}}!</p>
-        <a href="{% url 'logout' %}">Выйти</a>
-    {% else %}
-        <a href="{% url 'login' %}">Login</a>
-    {% endif %}
-</div>  
+<h1>MusicPlayer</h1>
 <hr>
 
-
-<h1>MusicPlayer</h1>
 <a href="{% url 'tracks' %}">Назад</a>
 <table class="CenterTable">
     <tr>

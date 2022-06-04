@@ -16,7 +16,8 @@ body {
     font-family: 'Oswald', sans-serif;
     display: flex;
     flex-direction: column;
-    background-color: #fafafa
+    background-color: #fafafa;
+    border-radius: 15px;
 }
 
 #Search-Area input[type=text] {
@@ -75,6 +76,10 @@ h1 {
     text-align: center;
     border-top:  3px solid;
     border-bottom:  5px solid;
+    background-color: #bfa6fa;
+    border-radius: 10px;
+    border-right: 3px solid;
+    border-left: 3px solid;
 }
 
 
