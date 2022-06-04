@@ -79,7 +79,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'musicPlayer.wsgi.application'
+WSGI_APPLICATION = 'megaturboultragiga420player.wsgi.application'
 
 
 # Database
