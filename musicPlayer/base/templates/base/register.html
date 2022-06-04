@@ -7,11 +7,11 @@
     <form method="POST">
         {% csrf_token %}
         {{form.as_p}}
+        <input id="RegisterInput" type="submit" value="Зарегистрироваться">
     </form>
 
 </div>
-<input id="RegisterInput" type="submit" value="Зарегистрироваться">
 <div id="LoginLink">
     <a href="{% url 'login' %}">Логин</a>
 </div>
-{% endblock content %}
+{% endblock content %}      
