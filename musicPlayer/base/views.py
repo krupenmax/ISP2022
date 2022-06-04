@@ -2,7 +2,6 @@ from asyncio import events
 from distutils.log import Log
 from multiprocessing import Event
 from re import search, template
-from turtle import onkeypress
 from django.shortcuts import redirect, render
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
