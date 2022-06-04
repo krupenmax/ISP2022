@@ -1,1 +1,1 @@
-web: gunicorn megaturboultragiga420player.wsgi --log-file -
+web: gunicorn musicPlayer.wsgi --log-file -
