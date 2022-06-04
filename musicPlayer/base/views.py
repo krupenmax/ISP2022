@@ -1,6 +1,5 @@
 from asyncio import events
 from distutils.log import Log
-from msilib.schema import EventMapping
 from multiprocessing import Event
 from re import search, template
 from turtle import onkeypress
