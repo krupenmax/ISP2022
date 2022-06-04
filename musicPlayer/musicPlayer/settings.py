@@ -26,7 +26,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-t*zhf^4=_b68n2&(9#5(eas0cw3c!n_lg&)=n33=gpw@_woy2o'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['megaturboultragiga420player.herokuapp.com', '127.0.0.1']
 
